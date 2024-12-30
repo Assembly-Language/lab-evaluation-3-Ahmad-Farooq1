@@ -8,7 +8,7 @@
 extern "C" {
 #endif
 
-void __stdcall asmfunc(int p1 ,int p2);
+void __stdcall asmfunc(int arr ,int *p2);
 
 #ifdef __cplusplus
 }
@@ -17,17 +17,21 @@ void __stdcall asmfunc(int p1 ,int p2);
 
 int main() {
     system("cls");
-    int abc;
+    int arr[10]={1,2,3,0,4,5,0,6,8,0};
+    int n=0;
     printf("assembly proc calling from  from C! \n");
 getch();
-
-    
-    asmfunc(3,5); //assembly proc calling
+    printf("the orignal array is :");
+    for(int i=0;i<10;i++){
+        printf("%d",arr[i]);
+        printf(" ");
+    }
+    asmfunc(arr,&n); //assembly proc calling
    
    getch();
     
-    
-    printf("back to  C! \n"); // printing in c
+    printf("\n");
+    printf("The number of all non-zero elements is = %d\n",n); // printing in c
     
   
     
